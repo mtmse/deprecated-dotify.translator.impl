@@ -23,6 +23,7 @@ import org.daisy.dotify.api.translator.TranslatableWithContext;
 import org.daisy.dotify.api.translator.TranslationException;
 import org.daisy.dotify.api.translator.TranslatorSpecification;
 import org.daisy.dotify.translator.DefaultMarkerProcessor;
+import org.daisy.dotify.translator.impl.DummyHyphenator;
 import org.liblouis.CompilationException;
 import org.liblouis.DisplayException;
 import org.liblouis.DisplayTable.Fallback;
@@ -237,6 +238,7 @@ class LiblouisBrailleFilter implements BrailleFilter {
 						if (LOGGER.isLoggable(Level.WARNING)) {
 							LOGGER.log(Level.WARNING, String.format("Failed to create hyphenator for %s", locale), e);
 						}
+						hx = new DummyHyphenator();
 					}
 					hyphenators.put(locale, hx);
 				}
