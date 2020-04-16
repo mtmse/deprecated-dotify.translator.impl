@@ -233,14 +233,16 @@ class LiblouisBrailleFilter implements BrailleFilter {
 				if (hx == null) {
 					try {
 						hx = hyphenatorFactoryMaker.newHyphenator(locale);
+                        hyphenators.put(locale, hx);
 					} catch (HyphenatorConfigurationException e) {
 						if (LOGGER.isLoggable(Level.WARNING)) {
 							LOGGER.log(Level.WARNING, String.format("Failed to create hyphenator for %s", locale), e);
 						}
 					}
-					hyphenators.put(locale, hx);
 				}
-				hyphText = hx.hyphenate(text);
+                if (hx != null) {
+                    hyphText = hx.hyphenate(text);
+                }
 			}
 
 			textB.append(text);
