@@ -240,9 +240,9 @@ class LiblouisBrailleFilter implements BrailleFilter {
 						}
 						hx = new DummyHyphenator();
 					}
-                    hyphenators.put(locale, hx);
+					hyphenators.put(locale, hx);
 				}
-                hyphText = hx.hyphenate(text);
+				hyphText = hx.hyphenate(text);
 			}
 
 			textB.append(text);
